@@ -13,7 +13,6 @@
 - **🔄 模型切换**：可在 DeepSeek API 和本地微调模型之间自由切换。
 - **🐳 容器化部署**：提供 Docker 镜像，一键运行，支持 GPU 加速。
 
----
 
 ##  快速开始
 
@@ -26,9 +25,9 @@
 docker run --gpus all -it --rm -p 7860:7860 \
   -e DEEPSEEK_API_KEY="你的DeepSeek密钥" \  
   your-dockerhub-username/my-ai-agent:latest
-访问 http://localhost:7860 即可使用；当然使用其他api也可以，这里为了方便国内环境使用deepseek。
 ```
----
+访问 http://localhost:7860 即可使用；当然使用其他api也可以，这里为了方便国内环境使用deepseek。
+
 
 ##  本地构建
 
@@ -37,8 +36,8 @@ docker build -t my-ai-agent .
 docker run --gpus all -it --rm -p 7860:7860 \
   -e DEEPSEEK_API_KEY="你的密钥" \
   my-ai-agent
+```
 
----
 
 ##  项目结构
 .
@@ -50,7 +49,6 @@ docker run --gpus all -it --rm -p 7860:7860 \
 ├── hf_cache/             # 嵌入模型缓存
 └── lora_adapter/         # LoRA 微调权重（可选）
 
----
 
 ##  技术栈
 
@@ -61,7 +59,6 @@ docker run --gpus all -it --rm -p 7860:7860 \
 * DuckDuckGo (联网搜索)
 * Docker (容器化)
 
----
 
 ##  注意事项
 
