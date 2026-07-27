@@ -43,10 +43,10 @@ docker run --gpus all -it --rm -p 7860:7860 \
 
 * Python 3.10 + PyTorch 2.0.1 (CUDA 11.8)
 * LangChain + Chroma (RAG)
-* Unsloth + PEFT (LoRA 微调)
-* Gradio (Web 界面)
-* DuckDuckGo (联网搜索)
-* Docker (容器化)
+* Unsloth + PEFT (LoRA)
+* Gradio 
+* DuckDuckGo 
+* Docker 
 
 
 ##  注意事项
