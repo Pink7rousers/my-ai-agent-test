@@ -65,3 +65,9 @@ docker run --gpus all -it --rm -p 7860:7860 \
 * 首次运行会下载嵌入模型（约 400MB），请确保网络畅通。
 * 如需使用本地微调模型，请将 lora_adapter 文件夹放入项目目录。
 
+
+## License
+
+> Copyright (c) 2026 Pink7rousers
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/mit-license.php) - see the [LICENSE](https://github.com/Pink7rousers/my-ai-agent-test/blob/main/LICENSE) file for details.
