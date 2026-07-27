@@ -27,7 +27,7 @@ docker run --gpus all -it --rm -p 7860:7860 \
   -e DEEPSEEK_API_KEY="你的DeepSeek密钥" \  
   your-dockerhub-username/my-ai-agent:latest
 访问 http://localhost:7860 即可使用；当然使用其他api也可以，这里为了方便国内环境使用deepseek。
-
+```
 ---
 
 ##  本地构建
