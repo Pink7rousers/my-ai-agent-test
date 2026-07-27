@@ -42,11 +42,17 @@ docker run --gpus all -it --rm -p 7860:7860 \
 ##  项目结构
 .
 ├── app.py                # 主程序（Gradio + Agent）
+
 ├── requirements.txt      # 依赖清单
+
 ├── Dockerfile            # 镜像构建文件
+
 ├── knowledge.txt         # 示例知识库
+
 ├── chroma_db/            # RAG 向量库（需自行生成）
+
 ├── hf_cache/             # 嵌入模型缓存
+
 └── lora_adapter/         # LoRA 微调权重（可选）
 
 
