@@ -61,4 +61,4 @@ trainer = SFTTrainer(
 trainer.train()
 
 model.save_pretrained("lora_adapter")
-print("✅ 微调完成！LoRA 权重已保存到 ./lora_adapter")
+print("微调完成！LoRA 权重已保存到 ./lora_adapter")
