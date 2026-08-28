@@ -1,18 +1,12 @@
-# 数据缓存和模型
 chroma_db/
 hf_cache/
 lora_adapter/
 torch_wheels/
 
-# Python 缓存
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-
-# 环境变量
 .env
-
-# 临时文件
 *.log
 *.tmp
