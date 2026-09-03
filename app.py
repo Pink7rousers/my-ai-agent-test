@@ -37,9 +37,9 @@ if os.path.exists("./lora_adapter"):
             load_in_4bit=True,
         )
         lora_model.load_adapter("./lora_adapter")
-        print("✅ 本地微调模型加载成功！")
+        print("模型加载成功")
     except Exception as e:
-        print(f"⚠️ 加载失败: {e}")
+        print(f"加载失败: {e}")
         lora_model = None
 
 # 推理函数
@@ -90,24 +90,22 @@ def agent_execute(user_input, model_choice="DeepSeek API"):
         except Exception as e:
             return f"计算错误：{e}"
 
-    # 检索并获取相似度分数（距离越小越相关）
     docs_with_scores = db.similarity_search_with_score(user_input, k=2)
-    RELEVANCE_THRESHOLD = 1.2   # 可根据需要调整（经验值）
+    RELEVANCE_THRESHOLD = 1.2   # 经验值
     relevant_docs = [(doc, score) for doc, score in docs_with_scores if score < RELEVANCE_THRESHOLD]
 
     if relevant_docs:
-        # 有相关文档，使用 RAG
+        # RAG
         context = "\n".join([doc.page_content for doc, _ in relevant_docs])
         prompt = f"请仅根据以下参考资料回答。\n【参考资料】\n{context}\n\n【问题】\n{user_input}"
     else:
-        # 本地知识库无相关结果，调用联网搜索
+        # 联网搜索
         search_results = web_search(user_input)
         if "未找到相关结果" in search_results or "搜索错误" in search_results:
             return "抱歉，未能在本地知识库和互联网中找到相关信息。请尝试换个问题或检查网络连接。"
         else:
             prompt = f"用户问了一个问题，我进行了联网搜索，得到以下信息：\n{search_results}\n\n请根据这些信息回答用户的问题。如果信息不足，请说明未找到足够资料。"
 
-    # 调用模型
     if model_choice == "本地微调模型" and lora_model is not None:
         return call_local_model(prompt)
     else:
@@ -126,7 +124,7 @@ model_selector = gr.Dropdown(
 demo = gr.ChatInterface(
     fn=chat_fn,
     additional_inputs=[model_selector],
-    title="🤖 企业智能助手 (Agent + RAG + 微调 + 联网搜索)",
+    title="企业智能助手 (RAG + 联网搜索)",
     description="我可以帮你查内部数据、做算术、联网搜索或闲聊。",
 )
 

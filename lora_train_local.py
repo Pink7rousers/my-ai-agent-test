@@ -27,7 +27,7 @@ model = FastLanguageModel.get_peft_model(
 
 # 加载数据集
 dataset = load_dataset("json", data_files="train_data.jsonl", split="train")
-print(f"✅ 数据集加载完成，共 {len(dataset)} 条样本")
+print(f"数据集加载完成，共 {len(dataset)} 条样本")
 
 # 格式化函数
 def formatting_func(example):
@@ -61,4 +61,4 @@ trainer = SFTTrainer(
 trainer.train()
 
 model.save_pretrained("lora_adapter")
-print("微调完成！LoRA 权重已保存到 ./lora_adapter")
+print("微调完成, LoRA 权重已保存到 ./lora_adapter")
