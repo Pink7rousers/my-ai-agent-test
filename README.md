@@ -14,7 +14,7 @@
 ### 一键运行（从 Docker Hub 拉取）
 ```bash
 docker run --gpus all -it --rm -p 7860:7860 \
-  -e DEEPSEEK_API_KEY="你的DeepSeek密钥" \  
+  -e DEEPSEEK_API_KEY=sk-your-deepseek-api-key \  
   your-dockerhub-username/my-ai-agent:latest
 ```
 访问 http://localhost:7860 即可使用；当然使用其他api也可以，这里为了方便国内环境使用deepseek。
@@ -25,10 +25,21 @@ docker run --gpus all -it --rm -p 7860:7860 \
 ```bash
 docker build -t my-ai-agent .
 docker run --gpus all -it --rm -p 7860:7860 \
-  -e DEEPSEEK_API_KEY="你的密钥" \
+  -e DEEPSEEK_API_KEY=sk-your-deepseek-api-key\
   my-ai-agent
 ```
 
+## 项目结构
+
+| 文件 | 说明 |
+|------|------|
+| app.py                  | 主程序（Gradio + Agent） |
+| requirements.txt      | 依赖列表 |
+| Dockerfile               | Docker 镜像构建文件 |
+| knowledge.txt               | 示例知识库文档 |
+| chroma_db/            | RAG 向量数据库（需自行生成） |
+| hf_cache/                | 嵌入模型缓存 |
+| lora_adapter/          | LoRA 微调权重（可选）|
 
 ##  技术栈
 
